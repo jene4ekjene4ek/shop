@@ -197,6 +197,106 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 title">
+            <p>НОВЫЕ ПОСТУПЛЕНИЯ </p>
+        </div>
+    </div>
+    {% for watch in watches %}
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card non_boder">
+                <img class="card-img-top img-responsive" src="{% static 'core/img/oris.png' %}" width="150" alt="Oris">
+                    <div class="card-body center">
+                        <a href="{{ watch.id }}"><h5 class="card-title">{{ watch.title }}</h5></a>
+                        <p class="card-text">{{ watch.subtitle }}</p>
+                        <br>
+                        <h5 class="card-title">{{ watch.price }}</h5>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-secondary bronze">
+                                <a href=#><img class="img-responsive" src="{% static 'core/img/shopping-bag-50.png' %}" width="30" alt="карзина"></a>
+                            </button>
+                            <button type="button" class="btn btn-secondary grey">
+                                <a href=#><img class="img-responsive" src="{% static 'core/img/wish_list.png' %}" width="30" alt="список желаний"></a>
+                            </button>
+                            <button type="button" class="btn btn-secondary grey">
+                                <a href=#><img class="img-responsive" src="{% static 'core/img/scale.png' %}" width="30" alt="Добавить в сравнение"></a>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!-- <div class="col-sm-3">
+            <div class="card non_boder">
+                <img class="card-img-top img-responsive" src="{% static 'core/img/primero.png' %}" alt="Primego">
+                    <div class="card-body center">
+                        <h5 class="card-title">{{ watch.title }}</h5>
+                        <p class="card-text">{{ watch.subtitle }}</p>
+                        <br>
+                        <h5 class="card-title">{{ watch.price }}</h5>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-secondary bronze">
+                                <a href=#><img class="img-responsive" src="{% static 'core/img/shopping-bag-50.png' %}" width="30" alt="карзина"></a>
+                            </button>
+                            <button type="button" class="btn btn-secondary grey">
+                                <a href=#><img class="img-responsive" src="{% static 'core/img/wish_list.png' %}" width="30" alt="список желаний"></a>
+                            </button>
+                            <button type="button" class="btn btn-secondary grey">
+                                <a href=#><img class="img-responsive" src="{% static 'core/img/scale.png' %}" width="30" alt="Добавить в сравнение"></a>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card non_boder">
+                <img class="card-img-top img-responsive" src="{% static 'core/img/baume.png' %}" height="215" alt="Baume">
+                    <div class="card-body center">
+                        <h5 class="card-title">{{ watch.title }}</h5>
+                            <p class="card-text">{{ watch.subtitle }}</p>
+                            <br>
+                            <h5 class="card-title">{{ watch.price }}</h5>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-secondary bronze">
+                                    <a href=#><img class="img-responsive" src="{% static 'core/img/shopping-bag-50.png' %}" width="30" alt="карзина"></a>
+                                </button>
+                                <button type="button" class="btn btn-secondary grey">
+                                    <a href=#><img class="img-responsive" src="{% static 'core/img/wish_list.png' %}" width="30" alt="список желаний"></a>
+                                </button>
+                                <button type="button" class="btn btn-secondary grey">
+                                    <a href=#><img class="img-responsive" src="{% static 'core/img/scale.png' %}" width="30" alt="Добавить в сравнение"></a>
+                                </button>
+                            </div>
+                    </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card non_boder">
+                <img class="card-img-top" src="{% static 'core/img/Royal_Oak.png' %}"  height="215" alt="Royal Oak">
+                    <div class="card-body center">
+                        <h5 class="card-title">AUDEMARS PIGUET</h5>
+                        <p class="card-text">ROYAL OAK OFFSHORE - 26470ST.OO.A820CR.01.</p>
+                        <h5 class="card-title">761 000.00 грн</h5>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-secondary bronze">
+                                <a href=#><img class="img-responsive" src="{% static 'core/img/shopping-bag-50.png' %}" width="30" alt="карзина"></a>
+                            </button>
+                            <button type="button" class="btn btn-secondary grey">
+                                <a href=#><img class="img-responsive" src="{% static 'core/img/wish_list.png' %}" width="30" alt="список желаний"></a>
+                            </button>
+                            <button type="button" class="btn btn-secondary grey">
+                                <a href=#><img class="img-responsive" src="{% static 'core/img/scale.png' %}" width="30" alt="Добавить в сравнение"></a>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+        </div> -->
+    </div>
+    {% endfor %}
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-12 title">
