@@ -1,0 +1,31 @@
+{% extends 'base1.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    {% for watch in watches %}
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="card non_boder">
+                    <div class="card-body center">
+                        <h5 class="card-title">{{ watch.title }}</h5>
+                            <p class="card-text">{{watch.subtitle}}</p>
+                            <br>
+                            <h5 class="card-title">{{watch.price}}</h5>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-secondary bronze">
+                                    <a href=#><img class="img-responsive" src="{% static 'core/img/shopping-bag-50.png' %}" width="30" alt="карзина"></a>
+                                </button>
+                                <button type="button" class="btn btn-secondary grey">
+                                    <a href=#><img class="img-responsive" src="{% static 'core/img/wish_list.png' %}" width="30" alt="список желаний"></a>
+                                </button>
+                                <button type="button" class="btn btn-secondary grey">
+                                    <a href=#><img class="img-responsive" src="{% static 'core/img/scale.png' %}" width="30" alt="Добавить в сравнение"></a>
+                                </button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock  %}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Turbion Watches</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" media="screen" href="{% static 'main.css' %}" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center color ">   
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light color ">
+            <div class="collapse navbar-collapse color" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active ">
+                        <a class="nav-link text-white " href="/about_us">О нас <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-white" href="/payment">Оплата</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-white" href="/delivery">Доставка</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-white" href="garanty">Гарантия</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 margin-right">
+                    <input class="form-control mr-sm-2 non_boder" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0 text-white border-white" type="submit">Search</button>
+                </form>
+                <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Список желаний" href="#">
+                    <img src="{% static 'core/img/wish_list.png' %}" width="25" height="25" alt="Список желаний">
+                </a>
+                <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Личный кабинет" href="/login">
+                    <img src="{% static 'core/img/personal.png' %}" width="25" height="25" alt="Личный кабинет">
+                </a>
+                <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Карзина" href="#">
+                    <img src="{% static 'core/img/shopping-bag-50.png' %}" width="40" height="40" alt="Карзина">
+                
+                </a>       
+            </div>
+        </nav>
+        <a href="/"><img class="img-responsive" src="{% static 'core/img/logo.png' %}" height="60" alt="Turbion"></a>
+    </div>
+    <div class="container">
+        <ul class="nav justify-content-center">
+
+            <li class="nav-item bold">
+                <a class="nav-link active text-white" href="/all_brands">Все часы</a>
+            </li>
+            <li class="nav-item bold">
+                <a class="nav-link text-white" href="#">Мужские</a>
+            </li>
+            <li class="nav-item bold">
+                <a class="nav-link text-white" href="#">Женские</a>
+            </li>
+            <li class="nav-item bold">
+                <a class="nav-link text-white" href="#">Аксессуары</a>
+            </li>
+            <li class="nav-item bold">
+                <a class="nav-link text-white" href="#">Предзаказ</a>
+            </li>
+            <li class="nav-item bold">
+                <a class="nav-link text-white " href="#">Sale</a>
+            </li>
+            <li class="nav-item bold">
+                <a class="nav-link text-white " href="/contacts">Контакты</a>
+            </li>
+        </ul>
+    </div>
+          
+</div>
+
+{% block content %}
+{% endblock %}
+
+</body>
+<footer>
+<div class="jumbotron color">
+    <div class="container bottom">
+        <div class="row top text-white">
+            <p>Подписаться на новости</p>
+        </div>
+        <form class="form-inline">
+            <div class="form-group mb-2 margin-right">
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2 bronze">Подписаться</button>
+        </form>
+    </div>
+    <hr color="white">
+    <div class="container">
+        <div class="row bottom text-white">
+            <div class="col-sm-2">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link padding active bold14">О НАС</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font12 text-white" href="/about_us">О компании</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font12 text-white pad2" href="#">Отзывы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font12 text-white pad2" href="/payment">Оплата</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font12 text-white pad2" href="/confidance">Политика конфиденциальности</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link padding active bold14" href="#">ЛИЧНЫЙ КАБИНЕТ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font12 text-white" href="#">Логин</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font12 text-white pad2" href="#">Статус заказов</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font12 text-white pad2" href="#">Список желаний</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font12 text-white pad2" href="#">Платежная информация</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link padding active bold14">ПОДДЕРЖКА</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font12 text-white" href="#">Условия возврата</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font12 text-white pad2" href="/delivery">Доставка</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font12 text-white pad2" href="/garanty">Гарантия</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font12 text-white pad2" href="#">FAQs</a>
+                    </li>
+                 </ul>
+            </div>
+            <div class="col-sm-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link padding active bold14" href="/contacts">КОНТАКТЫ</a>
+                    </li>
+                    <li class="nav-item font12">
+                        <p>0 800 895623</p>
+                    </li>
+                    <li class="nav-item font12">
+                        <p>e-mail: info@turbion.com</p>
+                    </li>
+                    <li class="nav-item font12">
+                        <p>адрес: г. Харьков, </p>
+                    </li>
+                    <li class="nav-item font12">
+                        <p>пр.Науки, 40</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <ul class="nav flex-column">
+                    <li class="nav-item bold14">
+                        <p>ПЛАТЕЖНЫЕ СИСТЕМЫ</p>
+                    </li>
+                    <li class="nav-item">
+                        <img class="img-responsive" src="{% static 'core/img/visa-mastercard-icon.png' %}" width="150" alt="Visa Master Card">
+                    </li>
+
+                    </ul>
+                </div>
+        </div>
+    </div>
+    <hr color="white">
+    <div class="container text-white">
+        <div class="row top">
+            <p>Турбийон <sup>ТМ</sup> - все права защищены</p> 
+        </div>
+    </div>
+
+</div>
+
+</footer>
+</html>
