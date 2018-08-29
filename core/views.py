@@ -9,8 +9,13 @@ from core.models import Watches
 class Home(TemplateView):
     template_name = 'home.html'
 
-    def home(self, request):
-        return render(request, 'core/home.html', {})
+    # def home(self, request):
+    #     return render(request, 'core/home.html', {})
+
+    def get_context_data(self, **kwargs):
+        context = super(Home, self).get_context_data(**kwargs)
+        context['watches'] = Watches.objects.all().order_by("-date_add")[:4]
+        return context
 
 
 class AboutUs(TemplateView):
