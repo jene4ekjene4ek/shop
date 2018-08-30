@@ -35,16 +35,36 @@
                     <input class="form-control mr-sm-2 non_boder" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0 text-white border-white" type="submit">Search</button>
                 </form>
-                <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Список желаний" href="#">
-                    <img src="{% static 'core/img/wish_list.png' %}" width="25" height="25" alt="Список желаний">
-                </a>
-                <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Личный кабинет" href="/login">
-                    <img src="{% static 'core/img/personal.png' %}" width="25" height="25" alt="Личный кабинет">
-                </a>
-                <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Карзина" href="#">
-                    <img src="{% static 'core/img/shopping-bag-50.png' %}" width="40" height="40" alt="Карзина">
-                
-                </a>       
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Список желаний" href="#">
+                          <img src="{% static 'core/img/wish_list.png' %}" width="25" height="25" alt="Список желаний">
+                      </a>
+                    </li>
+                        {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src="{% static 'core/img/personal.png' %}" width="25" height="25" alt="Личный кабинет">
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Мои данные</a>
+                        <a class="dropdown-item" href="#">Список желаний</a>
+                        <a class="dropdown-item" href="#">Выйти</a>
+                      </div>
+                    </li>
+                        {% else %}
+                    <li class="nav-item">
+                        <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Личный кабинет" href="/registration/login">
+                            <img src="{% static 'core/img/personal.png' %}" width="25" height="25" alt="Личный кабинет| Войти">
+                        </a>  
+                      </li>
+                        {% endif%}
+                    <li class="nav-item">
+                      <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Карзина" href="#">
+                          <img src="{% static 'core/img/shopping-bag-50.png' %}" width="40" height="40" alt="Карзина">
+                      </a>  
+                    </li>
+                  </ul>
             </div>
         </nav>
         <a href="/"><img class="img-responsive" src="{% static 'core/img/logo.png' %}" height="60" alt="Turbion"></a>
