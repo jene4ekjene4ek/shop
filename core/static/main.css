@@ -1,18 +1,18 @@
 @font-face{
     font-family: 'Corbel';
-    src: url("/static/fonts/Corbel/corbel.ttf");
+    src: url("../fonts/Corbel/corbel.ttf");
     font-style: normal;
 }
 
 @font-face{
     font-family: 'Lato';
-    src: url("/static/fonts/Lato/Lato-Bold.ttf");
+    src: url("../fonts/Lato/Lato-Bold.ttf");
     font-weight: bold;
 }
 
 @font-face{
     font-family: 'Corbel';
-    src: url("/static/fonts/Corbel/corbelb.ttf");
+    src: url("../fonts/Corbel/corbelb.ttf");
     font-weight: bold;
 }
 
@@ -346,4 +346,42 @@ button{
 .pad2{
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+
+.background{
+    background: white;
+}
+
+.bg-info {
+    background-color: white;
+}
+
+.card-title-all {
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.card-text-all{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-size: 14px;
+}
+
+.padding-r-20{
+    padding-right: 20px;
+}
+
+.padding-l-50-r-0{
+    padding-left: 50px;
+    padding-right: 0px;
+}
+
+.breadcrumb{
+    background-color: white;
+}
+
+.col-sm-9{
+    padding-right: 50px;
 }
