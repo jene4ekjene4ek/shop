@@ -204,8 +204,9 @@
             <p>НОВЫЕ ПОСТУПЛЕНИЯ FOR</p>
         </div>
     </div>
-    {% for watch in watches %}
+   
     <div class="row">
+        {% for watch in watches %}
         <div class="col-sm-3">
             <div class="card non_boder">
                 <img class="card-img-top img-responsive" src="{% static 'core/img/oris.png' %}" width="150" alt="Oris">
@@ -228,8 +229,9 @@
                     </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+   
         <!-- <div class="col-sm-3">
             <div class="card non_boder">
                 <img class="card-img-top img-responsive" src="{% static 'core/img/primero.png' %}" alt="Primego">

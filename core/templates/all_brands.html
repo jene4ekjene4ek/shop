@@ -2,8 +2,9 @@
 {% load staticfiles %}
 
 {% block content %}
-    {% for watch in watches %}
+  
         <div class="row">
+            {% for watch in watches %}
             <div class="col-sm-3">
                 <div class="card non_boder">
                     <div class="card-body center">
@@ -25,7 +26,8 @@
                     </div>
                 </div>
             </div>
+            {% endfor %} 
         </div>
-    {% endfor %}
+ 
 
 {% endblock  %}
