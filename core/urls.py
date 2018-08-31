@@ -14,9 +14,8 @@ urlpatterns = [
     #url(r'^login/$', LoginFormView.as_view(), name='login'),
     #url(r'^register/$', RegisterFormView.as_view(), name='register'),
     url(r'^all_brands/$', AllBrands.as_view(), name='all_brands'),
+    url(r'', include('django.contrib.auth.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
-    url(r'^confidance/$', Confidance.as_view(), name='confidance'),
-    url(r'', include('django.contrib.auth.urls'))
-    
+   
     
 ]

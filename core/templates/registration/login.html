@@ -19,7 +19,7 @@
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
         <button type="submit" class="btn btn-primary">Войти</button>
-        <button type="submit" class="btn btn-primary">Зарегистрироваться сейчас</button>
+        <a class="btn btn-primary" href={% url 'registration_register' %} role="button">Зарегистрироваться сейчас</a>
     </form>
 </div>
 {% endblock %}

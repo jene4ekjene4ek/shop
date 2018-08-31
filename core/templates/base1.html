@@ -41,13 +41,25 @@
                           <img src="{% static 'core/img/wish_list.png' %}" width="25" height="25" alt="Список желаний">
                       </a>
                     </li>
-                        
+                    {% if user.is_authenticated %}  
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="{% static 'core/img/personal.png' %}" width="25" height="25" alt="Личный кабинет">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#">Мои настройки</a>
+                          <a class="dropdown-item" href="#">Мои покупки</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{% url 'logout' %}">Выйти</a>
+                        </div>
+                      </li>
+                    {% else %}
                     <li class="nav-item">
-                        <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Личный кабинет" href="/login">
+                        <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Личный кабинет| Войти" href="/login">
                             <img src="{% static 'core/img/personal.png' %}" width="25" height="25" alt="Личный кабинет| Войти">
                         </a>  
                       </li>
-                        
+                    {% endif %}    
                     <li class="nav-item">
                       <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Карзина" href="#">
                           <img src="{% static 'core/img/shopping-bag-50.png' %}" width="40" height="40" alt="Карзина">
