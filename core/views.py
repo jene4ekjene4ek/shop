@@ -59,16 +59,6 @@ class LoginFormView():
     pass
 
 
-class RegisterFormView(FormView):
-    form_class = UserCreationForm
-    success_url = '/'
-    template_name = 'registration.html'
-
-    def form_valid(self, form):
-        form.save()
-        return super(RegisterFormView, self).form_valid(form)
-
-
 class AllBrands(TemplateView):
     template_name = 'all_brands.html'
 
@@ -76,6 +66,23 @@ class AllBrands(TemplateView):
         context = super(AllBrands, self).get_context_data(**kwargs)
         context['watches'] = Watches.objects.all()
         return context
+
+
+# class Profile(TemplateView):
+#     template_name = 'profile.html'
+
+#     def get_context_data(self, **kwargs):
+#         context = super(Profile, self).get_context_data(**kwargs)
+#         user_profile=User.objects.filter()
+        # user_posts = Post.objects.filter(
+        #     owner=self.request.user
+        # )
+        # context['published'] = user_posts.filter(
+        #     is_published=True)
+        # context['not_published'] = user_posts.filter(
+        #     is_published=False
+        # )
+        # return context
 
 
 

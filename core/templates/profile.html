@@ -1,0 +1,33 @@
+{% extends 'base1.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="container">
+    <div class="bottom top">
+        <h5> Мой личный кабинет </h5>
+    </div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'profile' %}">Мои данные</a>
+            <div class="padding-l-50-r-0">
+                <p>Имя</p>
+                <p>Фамилия</p>
+                <p>Дата рождения</p>
+                <p>Электронный адрес</p>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Мои заказы</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Мой список желаний</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Мои платежные данные и доставка</a>
+        </li>
+    
+    </ul>
+</div>
+
+{% endblock %}
