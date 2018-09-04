@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from core.views import Home, AboutUs, Payment, Delivery, Garanty, Contacts, Confidance,  AllBrands, Profile
+from core.views import Home, AboutUs, Payment, Delivery, Garanty, Contacts, Confidance,  AllBrands, Profile, Orders
 #from django.views.generic import ListView, DetailView
 from core.models import Watches
 
@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'', include('django.contrib.auth.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^profile/', Profile.as_view(), name='profile'),
+    url(r'^orders/', Orders.as_view(), name='orders'),
    
     
 ]

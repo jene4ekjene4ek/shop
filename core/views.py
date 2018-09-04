@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from django.contrib.auth.forms import UserCreationForm
-from core.models import Watches
+from core.models import Watches, Orders
+from django.views.generic.list import ListView
 
 # Create your views here.
 
@@ -55,10 +56,6 @@ class Confidance(TemplateView):
         return render(request, 'core/confidance.html', {})
 
 
-class LoginFormView():
-    pass
-
-
 class AllBrands(TemplateView):
     template_name = 'all_brands.html'
 
@@ -68,22 +65,24 @@ class AllBrands(TemplateView):
         return context
 
 
-# class Profile(TemplateView):
-#     template_name = 'profile.html'
+class Profile(TemplateView):
+    template_name = 'profile.html'
 
-#     def get_context_data(self, **kwargs):
-#         context = super(Profile, self).get_context_data(**kwargs)
-#         user_profile=User.objects.filter()
-        # user_posts = Post.objects.filter(
-        #     owner=self.request.user
-        # )
+    def get_context_data(self, **kwargs):
+        context = super(Profile, self).get_context_data(**kwargs)
+        #ser_profile=User.objects.filter()
+
         # context['published'] = user_posts.filter(
         #     is_published=True)
         # context['not_published'] = user_posts.filter(
         #     is_published=False
         # )
-        # return context
+        return context
 
+
+class Orders(ListView):
+    model = Orders
+    template_name = 'orders.html'
 
 
 

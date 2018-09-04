@@ -1,18 +1,18 @@
 @font-face{
     font-family: 'Corbel';
-    src: url("../fonts/Corbel/corbel.ttf");
+    src: url("static/fonts/Corbel/corbel.ttf");
     font-style: normal;
 }
 
 @font-face{
     font-family: 'Lato';
-    src: url("../fonts/Lato/Lato-Bold.ttf");
+    src: url("static/fonts/Lato/Lato-Bold.ttf");
     font-weight: bold;
 }
 
 @font-face{
     font-family: 'Corbel';
-    src: url("../fonts/Corbel/corbelb.ttf");
+    src: url("static/fonts/Corbel/corbelb.ttf");
     font-weight: bold;
 }
 
