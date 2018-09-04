@@ -80,9 +80,14 @@ class Profile(TemplateView):
         return context
 
 
-class Orders(ListView):
+class Order(ListView):
     model = Orders
     template_name = 'orders.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleListView, self).get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
 
 
 
