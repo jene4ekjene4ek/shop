@@ -2,6 +2,9 @@ from django.conf.urls import url, include
 from core.views import Home, AboutUs, Payment, Delivery, Garanty, Contacts, Confidance,  AllBrands, Profile, Orders
 #from django.views.generic import ListView, DetailView
 from core.models import Watches
+from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', Home.as_view(), name='home'),
@@ -16,6 +19,7 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^profile/', Profile.as_view(), name='profile'),
     url(r'^orders/', Orders.as_view(), name='orders'),
+    url(r'^admin/', admin.site.urls),
    
     
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
