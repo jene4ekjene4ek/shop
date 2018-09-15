@@ -106,110 +106,12 @@
             <p>НОВЫЕ ПОСТУПЛЕНИЯ </p>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-sm-3">
-            <div class="card non_boder">
-                <img class="card-img-top img-responsive" src="{% static 'core/img/oris.png' %}" width="150" alt="Oris">
-                    <div class="card-body center">
-                        <h5 class="card-title">Oris</h5>
-                        <p class="card-text">735.7641.4733 TS 5.22.24B BC3</p>
-                        <br>
-                        <h5 class="card-title">44 415.00 грн</h5>
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-secondary bronze">
-                                <a href=#><img class="img-responsive" src="{% static 'core/img/shopping-bag-50.png' %}" width="30" alt="карзина"></a>
-                            </button>
-                            <button type="button" class="btn btn-secondary grey">
-                                <a href=#><img class="img-responsive" src="{% static 'core/img/wish_list.png' %}" width="30" alt="список желаний"></a>
-                            </button>
-                            <button type="button" class="btn btn-secondary grey">
-                                <a href=#><img class="img-responsive" src="{% static 'core/img/scale.png' %}" width="30" alt="Добавить в сравнение"></a>
-                            </button>
-                        </div>
-                    </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card non_boder">
-                <img class="card-img-top img-responsive" src="{% static 'core/img/primero.png' %}" alt="Primego">
-                    <div class="card-body center">
-                        <h5 class="card-title">El Primero Calibre 410</h5>
-                        <p class="card-text">03.2091.410/01.C494</p>
-                        <br>
-                        <h5 class="card-title">187 000.00 грн</h5>
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-secondary bronze">
-                                <a href=#><img class="img-responsive" src="{% static 'core/img/shopping-bag-50.png' %}" width="30" alt="карзина"></a>
-                            </button>
-                            <button type="button" class="btn btn-secondary grey">
-                                <a href=#><img class="img-responsive" src="{% static 'core/img/wish_list.png' %}" width="30" alt="список желаний"></a>
-                            </button>
-                            <button type="button" class="btn btn-secondary grey">
-                                <a href=#><img class="img-responsive" src="{% static 'core/img/scale.png' %}" width="30" alt="Добавить в сравнение"></a>
-                            </button>
-                        </div>
-                    </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card non_boder">
-                <img class="card-img-top img-responsive" src="{% static 'core/img/baume.png' %}" height="215" alt="Baume">
-                    <div class="card-body center">
-                        <h5 class="card-title">BAUME & MERCIER</h5>
-                            <p class="card-text">MY CLASSIMA - M0A10356</p>
-                            <br>
-                            <h5 class="card-title">32 640.00 грн</h5>
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-secondary bronze">
-                                    <a href=#><img class="img-responsive" src="{% static 'core/img/shopping-bag-50.png' %}" width="30" alt="карзина"></a>
-                                </button>
-                                <button type="button" class="btn btn-secondary grey">
-                                    <a href=#><img class="img-responsive" src="{% static 'core/img/wish_list.png' %}" width="30" alt="список желаний"></a>
-                                </button>
-                                <button type="button" class="btn btn-secondary grey">
-                                    <a href=#><img class="img-responsive" src="{% static 'core/img/scale.png' %}" width="30" alt="Добавить в сравнение"></a>
-                                </button>
-                            </div>
-                    </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card non_boder">
-                <img class="card-img-top" src="{% static 'core/img/Royal_Oak.png' %}"  height="215" alt="Royal Oak">
-                    <div class="card-body center">
-                        <h5 class="card-title">AUDEMARS PIGUET</h5>
-                        <p class="card-text">ROYAL OAK OFFSHORE - 26470ST.OO.A820CR.01.</p>
-                        <h5 class="card-title">761 000.00 грн</h5>
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-secondary bronze">
-                                <a href=#><img class="img-responsive" src="{% static 'core/img/shopping-bag-50.png' %}" width="30" alt="карзина"></a>
-                            </button>
-                            <button type="button" class="btn btn-secondary grey">
-                                <a href=#><img class="img-responsive" src="{% static 'core/img/wish_list.png' %}" width="30" alt="список желаний"></a>
-                            </button>
-                            <button type="button" class="btn btn-secondary grey">
-                                <a href=#><img class="img-responsive" src="{% static 'core/img/scale.png' %}" width="30" alt="Добавить в сравнение"></a>
-                            </button>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12 title">
-            <p>НОВЫЕ ПОСТУПЛЕНИЯ </p>
-        </div>
-    </div>
     
     <div class="row">
             {% for watch in watches %}
         <div class="col-sm-3">
             <div class="card non_boder">
-                <img class="card-img-top img-responsive" src="{% static 'core/img/oris.png' %}" width="150" alt="Oris">
+                <img class="card-img-top img-responsive" src="{{ watch.image.url }}" width="150" alt="Oris">
                     <div class="card-body center">
                         <a href="{{ watch.id }}"><h5 class="card-title">{{ watch.title }}</h5></a>
                         <p class="card-text">{{ watch.subtitle }}</p>
@@ -307,7 +209,7 @@
         </div>
         <div class="row">
             <div class="col-sm-6 inline-block center text-white">
-                <a href=#><img class="img-responsive" src="{% static 'core/img/men.png' %}" width="570" alt="Мужские часы"></a>
+                <a href="{% url 'men' %}"><img class="img-responsive" src="{% static 'core/img/men.png' %}" width="570" alt="Мужские часы"></a>
                 <div class="text">
                     <h3> МУЖСКИЕ ЧАСЫ</h3>
                 </div>
@@ -315,9 +217,10 @@
             </div>
             <div class="col-sm-6 bronze center text-white">
                 <div class="text3">
-                    
-                    <h3>АКСЕССУАРЫ</h3>
+                    <a href="{% url 'unisex' %}">
+                    <h3>УНИСЕКС</h3>
                     <p>ремни, браслеты, шкатулки</p>
+                    </a>
                     
                 </div>
                
@@ -332,7 +235,7 @@
                 
             </div>
             <div class="col-sm-6 inline-block center text-white">
-                <a href=#><img class="img-responsive" src="{% static 'core/img/women.jpg' %}" width="570" alt="Женские часы"></a>
+                <a href="{% url 'women' %}"><img class="img-responsive" src="{% static 'core/img/women.jpg' %}" width="570" alt="Женские часы"></a>
                 <div class="text2">
                     <h3>ЖЕНСКИЕ ЧАСЫ</h3>
                 </div>
@@ -341,25 +244,25 @@
         </div>
         <div class="row bottom">
             <div class="col-sm-3  center text-white">
-                <a href=#><img class="img-responsive" src="{% static 'core/img/swiss.jpg' %}" width="285" alt="Швейцарские часы"></a>
+                <a href="{% url 'swiss' %}"><img class="img-responsive" src="{% static 'core/img/swiss.jpg' %}" width="285" alt="Швейцарские часы"></a>
                 <div class="text5">
                     <h4>ШВЕЙЦАРСКИЕ ЧАСЫ</h4>
                 </div>
             </div>
             <div class="col-sm-3  center text-white">
-                <a href=#><img class="img-responsive" src="{% static 'core/img/jap.jpg' %}" width="285" alt="Японские часы"></a>
+                <a href="{% url 'japan' %}"><img class="img-responsive" src="{% static 'core/img/jap.jpg' %}" width="285" alt="Японские часы"></a>
                 <div class="text5">
                     <h4>ЯПОНСКИЕ ЧАСЫ</h4>
                 </div>
             </div>
             <div class="col-sm-3 center text-white">
-                <a href=#><img class="img-responsive" src="{% static 'core/img/eu.png' %}" width="285" alt="Европейские часы"></a>
+                <a href="{% url 'europe' %}"><img class="img-responsive" src="{% static 'core/img/eu.png' %}" width="285" alt="Европейские часы"></a>
                 <div class="text5">
                     <h4>ЕВРОПЕЙСКИЕ ЧАСЫ</h4>
                 </div>
             </div>
             <div class="col-sm-3 center text-white">
-                <a href=#><img class="img-responsive" src="{% static 'core/img/fash.jpg' %}" width="285" alt="Fashion часы"></a>
+                <a href="{% url 'fashion' %}"><img class="img-responsive" src="{% static 'core/img/fash.jpg' %}" width="285" alt="Fashion часы"></a>
                 <div class="text5">
                     <h4>FASHION ЧАСЫ</h4>
                 </div>

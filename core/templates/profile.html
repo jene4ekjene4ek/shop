@@ -10,12 +10,19 @@
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link active" href="{% url 'profile' %}">Мои данные</a>
-            <div class="padding-l-50-r-0">
+            <!-- <div class="padding-l-50-r-0">
                 <p>Имя</p>
                 <p>Фамилия</p>
                 <p>Дата рождения</p>
                 <p>Электронный адрес</p>
-            </div>
+            </div> -->
+                      
+
+            <form method="post">{% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit">
+            </form>
+           
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{% url 'orders' %}">Мои заказы</a>
