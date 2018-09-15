@@ -40,6 +40,7 @@ class Watches(models.Model):
     slug = models.SlugField(default=True)
     gender = models.IntegerField(null=True, choices=GENDER_CHOICES)
     made_by = models.IntegerField(null=True, choices=COUNTRY_CHOICES)
+    
 
 
     def __str__(self):
