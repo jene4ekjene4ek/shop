@@ -175,21 +175,22 @@
             </div>
             <div class="col-sm-9 padding-l-50-r-0 float-right">
                 <div>
-                    <h3>Европейские часы</h3>
+                    <h3>Европейские часы ({{ watches.count }})</h3>
                 </div>
                 <div class="bottom">
                     <h6>Сортировать по:</h6>
                 </div>
                 <div class="row bottom">
                     {% for watch in watches %}
+                    
                     <div class="col-sm-4">
                         <div class="card non_boder">
-                            <img class="card-img-top img-responsive" src="{{ watch.image.url }}" width="150" alt="{{watch.title}}">
+                            <img class="card-img-top img-responsive" src="{{ watch.image.url }}" width="150" alt="Oris">
                                 <div class="card-body center">
-                                    <h5 class="card-title-all">{{ watch.title }}</h5>
-                                    <p class="card-text-all">{{watch.subtitle}}</p>
+                                    <a href="{{ watch.slug }}"><h5 class="card-title">{{ watch.title }}</h5></a>
+                                    <p class="card-text">{{ watch.subtitle }}</p>
                                     <br>
-                                    <h5 class="card-title-all">{{watch.price}}</h5>
+                                    <h5 class="card-title">{{ watch.price }}</h5>
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-secondary bronze">
                                             <a href=#><img class="img-responsive" src="{% static 'core/img/shopping-bag-50.png' %}" width="30" alt="карзина"></a>

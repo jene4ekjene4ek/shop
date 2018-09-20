@@ -1,11 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, FormView, View
+from django.views.generic import TemplateView, FormView, View, DetailView
 from django.views.generic.edit import FormView
-from django.contrib.auth.forms import UserCreationForm
-from core.models import Watches, Orders
+from core.models import Watches, Orders, NameBrand
 from django.views.generic.list import ListView
-from core.forms import FilterForm, UserForm
-
+from .forms import UserForm, FilterForm
 # Create your views here.
 
 class Home(TemplateView):
@@ -63,6 +61,8 @@ class AllBrands(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(AllBrands, self).get_context_data(**kwargs)
         context['watches'] = Watches.objects.all()
+        number = Watches.objects.all().count()
+        print (number)
         return context
 
 class Men(TemplateView):
@@ -121,22 +121,21 @@ class Fashion(TemplateView):
         context['watches'] = Watches.objects.filter(fashion=True)
         return context
 
-class Profile(TemplateView):
+class Profile(FormView):
     template_name = 'profile.html'
+    form_class = UserForm
+    success_url = '/profile/'
 
-    
+    def form_valid(self, form):
+        form.save()
+        return super(Profile, self).form_valid(form)
 
-    def get_context_data(self, **kwargs):
-        context = super(Profile, self).get_context_data(**kwargs)
-        
-        return context
+    def get_form_kwargs(self):
+        form_kwargs = super(Profile, self).get_form_kwargs()
+        form_kwargs['instance'] = self.request.user
+        return form_kwargs
 
-# class ProfileProfile(View):
-    
-#     def post(self, request):
-#         form = UserForm(self.request.POST)
-#         if form.is_valid():
-#             user = User.objects.get(username=username)
+
 
 
 class Order(ListView):
@@ -148,5 +147,36 @@ class FilterView(FormView):
     template_name = "filters.html"
     form_class = FilterForm
 
+class WatchView(DetailView):
+    template_name = "watches.html"
+    model = Watches
 
 
+
+    def watch(self, request):
+        watch = Watches.objects.get(id=id)
+        return render(request, 'core/watches.html', {})
+
+# class Brand(TemplateView):
+#     # template_name = "brand.html"
+#     # model = NameBrand
+
+#     # def get_context_data(self, **kwargs):
+#     #     context = super(Brand, self).get_context_data(**kwargs)
+#     #     #context['brands'] = Brand.objects.get(id=)
+#     #     context['watches'] = Watches.object.filter(namebrand_id=7)
+#     #     return context
+
+#     # def brands(self, request):
+#     #     #brand = Brand.objects.get(id=id)
+#     #     watches = Watches.object.filter(namebrand_id=3)
+#     #     return render(request, 'core/brand.html', {})
+
+#     def brands(self, request):
+#         return render(request, 'core/brand.html', {})  
+
+class Br(TemplateView):
+    template_name = 'brand.html'
+
+    def br(self, request):
+        return render(request, 'core/brand.html', {})  

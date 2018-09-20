@@ -5,7 +5,14 @@ from django.db import models
 
 # Create your models here.
 
+class NameBrand(models.Model):
+    name = models.CharField(max_length = 50, unique=True)
+    slug = models.SlugField(default=True, unique=True)
+    image = models.ImageField(default=True, upload_to="img")
 
+
+    def __str__(self):
+            return self.name
 
 class Watches(models.Model):
 
@@ -28,18 +35,20 @@ class Watches(models.Model):
         (EUROPE, 'Europe'),
         (JAPAN, 'Japan')
     )
-    #brand_id = models.ForeignKey(Brands)
+    namebrand_id = models.ForeignKey(NameBrand, default=True)
     title = models.CharField(max_length = 250)
     subtitle = models.CharField(max_length = 250)
     price = models.FloatField() 
     date_add = models.DateField(auto_now_add=False)
     fashion = models.BooleanField(default=False)
-    #sex = models.CharField(default=True, max_length = 250)
+    
     char = models.TextField(default=True)
     image = models.ImageField(default=True, upload_to="img")
-    slug = models.SlugField(default=True)
+    slug = models.SlugField(default=True, unique=True)
     gender = models.IntegerField(null=True, choices=GENDER_CHOICES)
     made_by = models.IntegerField(null=True, choices=COUNTRY_CHOICES)
+    discount = models.FloatField(null=True) 
+
     
 
 
@@ -56,8 +65,7 @@ class Orders(models.Model):
 
 
 
-# class NameBrand(models.Model):
-#     name = models.CharField(max_length = 50)
+
 
     
 

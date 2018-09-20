@@ -1,0 +1,54 @@
+{% extends 'base1.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb ">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'all_brands' %}">Все часы</a></li>
+                <li class="breadcrumb-item"><a href=#>{{ object.namebrand_id }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ object.title }} {{ object.subtitle }}</li>
+            </ol>
+        </nav>
+    </div>
+   
+    <div class="container top">
+        <div class="background clearfix">
+            <div class="col-sm-3 border-right padding-r-20 float-left"> 
+                <img class="card-img-top img-responsive" src="{{ object.image.url }}" width="150" alt="{{ object.title }}">             
+            </div>
+            <div class="col-sm-9 padding-l-50-r-0 float-right">
+                <div>
+                    <h3>{{ object.title }}</h3>
+                    <h3>{{ object.subtitle }}</h3>
+                    
+                    <p>{{ object.char}}</p>
+                    <h3>{{ object.price}}</h3>
+                </div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-secondary bronze">
+                        <a href=#><img class="img-responsive" src="{% static 'core/img/shopping-bag-50.png' %}" width="30" alt="карзина"></a>
+                    </button>
+                    <button type="button" class="btn btn-secondary grey">
+                        <a href=#><img class="img-responsive" src="{% static 'core/img/wish_list.png' %}" width="30" alt="список желаний"></a>
+                    </button>
+                    <button type="button" class="btn btn-secondary grey">
+                        <a href=#><img class="img-responsive" src="{% static 'core/img/scale.png' %}" width="30" alt="Добавить в сравнение"></a>
+                    </button>
+                </div>
+                <div class="row bottom">
+                    <h3>Характеристики</h3>
+                </div>
+                <div class="row bottom">
+                        <h3>Похожие товары</h3>
+                </div>
+                
+            </div>
+        </div>
+    
+    </div>
+   
+    
+
+{% endblock  %}

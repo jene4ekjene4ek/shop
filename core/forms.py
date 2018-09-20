@@ -4,14 +4,14 @@ from django.contrib.auth.models import User
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name']
+        fields = ['first_name', 'last_name', 'email']
 
 
 class FilterForm(forms.Form):
     price_from = forms.FloatField()
     price_to = forms.FloatField()
 
-    brands = 
+    #brands = 
 
     def clean_price_from(self):
         if self.cleaned_data['price_from'] < 0:

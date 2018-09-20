@@ -7,7 +7,7 @@
             <ol class="breadcrumb ">
                 <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
                 <li class="breadcrumb-item"><a href="{% url 'all_brands' %}">Все часы</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Швейцарские часы</li>
+                <li class="breadcrumb-item active" aria-current="page">{}*</li>
             </ol>
         </nav>
     </div>
@@ -175,14 +175,15 @@
             </div>
             <div class="col-sm-9 padding-l-50-r-0 float-right">
                 <div>
-                    <h3>Швейцарские часы ({{ watches.count }})</h3>
+                    <h3>Европейские часы ({{ watches.count }})</h3>
                 </div>
                 <div class="bottom">
                     <h6>Сортировать по:</h6>
                 </div>
                 <div class="row bottom">
                     {% for watch in watches %}
-                    <div class="col-sm-3">
+                    
+                    <div class="col-sm-4">
                         <div class="card non_boder">
                             <img class="card-img-top img-responsive" src="{{ watch.image.url }}" width="150" alt="Oris">
                                 <div class="card-body center">

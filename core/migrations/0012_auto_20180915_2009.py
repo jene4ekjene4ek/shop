@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='watches',
             name='slug',
-            field=models.SlugField(help_text='URL like line', max_length=255, unique=True, verbose_name='URL like str'),
+            field=models.SlugField(help_text='URL like line', max_length=255, verbose_name='URL like str'),
         ),
     ]

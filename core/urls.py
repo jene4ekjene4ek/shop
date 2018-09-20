@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from core.views import Home, AboutUs, Payment, Delivery, Garanty, Contacts, Confidance,  AllBrands, Profile, Order, FilterView, Men, Women, Unisex, Swiss, Japan, Europe, Fashion
+from core.views import Home, AboutUs, Payment, Delivery, Garanty, Contacts, Confidance,  AllBrands, Profile, Order, FilterView, Men, Women, Unisex, Swiss, Japan, Europe, Fashion, WatchView, Br
 #from django.views.generic import ListView, DetailView
 from core.models import Watches
 from django.contrib import admin
@@ -28,6 +28,10 @@ urlpatterns = [
     url(r'^orders/', Order.as_view(), name='orders'),
     url(r'^admin/', admin.site.urls),
     url(r'^filter_form/', FilterView.as_view()),
+    url(r'^(?P<slug>[-\w]+)/$', WatchView.as_view(), name='watch_detail'),
+    #url(r'^(?P<slug>[-\w]+)/$', Brand.as_view(), name='brand'),
+    #url(r'^brand/$', Brand.as_view(), name='brand'),
+    url(r'^brand/$', Br.as_view(), name='brand'),
    
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
