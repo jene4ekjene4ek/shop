@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from core.views import Home, AboutUs, Payment, Delivery, Garanty, Contacts, Confidance,  AllBrands, Profile, Order, FilterView, Men, Women, Unisex, Swiss, Japan, Europe, Fashion, WatchView, Br
+from core.views import Home, AboutUs, Payment, Delivery, Garanty, Contacts, Confidance,  AllBrands, Profile, Order, Men, Women, Unisex, Swiss, Japan, Europe, Fashion, WatchView, BrandView, Sale, PreOrder, CartCart, AddToCart
 #from django.views.generic import ListView, DetailView
 from core.models import Watches
 from django.contrib import admin
@@ -25,13 +25,23 @@ urlpatterns = [
     url(r'', include('django.contrib.auth.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^profile/', Profile.as_view(), name='profile'),
-    url(r'^orders/', Order.as_view(), name='orders'),
+ 
     url(r'^admin/', admin.site.urls),
-    url(r'^filter_form/', FilterView.as_view()),
+     url(r'^cart/$', CartCart.as_view(), name='cart'),
+    url(r'^sale/$', Sale.as_view(), name='sale'),
+    url(r'^preorder/$', PreOrder.as_view(), name='preorder'),
+    url(r'^all_brands/(?P<namebrand_slug>[-\w]+)/$$', BrandView.as_view(), name='brand_detail'),
+    url(r'^add_to_cart/(?P<watch_slug>[-\w]+)/$', AddToCart.as_view(), name='add_to_cart'),
+    url(r'^cart/$', CartCart.as_view(), name='cart'),
+    # url(r'^all_brands_test/$', AllBrandsTest.as_view(), name='all_brands_test'),
+    # url(r'^finish/$', 'core.views.closed_order', name='finish'),
     url(r'^(?P<slug>[-\w]+)/$', WatchView.as_view(), name='watch_detail'),
-    #url(r'^(?P<slug>[-\w]+)/$', Brand.as_view(), name='brand'),
-    #url(r'^brand/$', Brand.as_view(), name='brand'),
-    url(r'^brand/$', Br.as_view(), name='brand'),
+    #url(r'^\w+/(?P<slug>[-\w]+)/$', WatchView.as_view(), name='watch_detail'),
+   
+    
+    
+    
+    
    
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

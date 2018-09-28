@@ -19,16 +19,16 @@
             <div class="collapse navbar-collapse color" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active ">
-                        <a class="nav-link text-white " href="/about_us">О нас <span class="sr-only">(current)</span></a>
+                        <a class="nav-link text-white " href="{% url 'about_us' %}">О нас <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link text-white" href="/payment">Оплата</a>
+                        <a class="nav-link text-white" href="{% url 'payment' %}">Оплата</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link text-white" href="/delivery">Доставка</a>
+                        <a class="nav-link text-white" href="{% url 'delivery' %}">Доставка</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link text-white" href="garanty">Гарантия</a>
+                        <a class="nav-link text-white" href="{% url 'garanty' %}">Гарантия</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0 margin-right">
@@ -55,13 +55,13 @@
                       </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Личный кабинет| Войти" href="/login">
+                        <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Личный кабинет| Войти" href="{% url 'login' %}">
                             <img src="{% static 'core/img/personal.png' %}" width="25" height="25" alt="Личный кабинет| Войти">
                         </a>  
                       </li>
                     {% endif %}    
                     <li class="nav-item">
-                      <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Карзина" href="#">
+                      <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Карзина" href="{% url 'cart' %}">
                           <img src="{% static 'core/img/shopping-bag-50.png' %}" width="40" height="40" alt="Карзина">
                       </a>  
                     </li>
@@ -74,7 +74,7 @@
         <ul class="nav justify-content-center">
 
             <li class="nav-item bold">
-                <a class="nav-link active text-white" href="/all_brands">Все часы</a>
+                <a class="nav-link active text-white" href="{% url 'all_brands' %}">Все часы</a>
             </li>
             <li class="nav-item bold">
                 <a class="nav-link text-white" href="{% url 'men' %}">Мужские</a>
@@ -86,13 +86,13 @@
                 <a class="nav-link text-white" href="{% url 'unisex' %}">Унисекс</a>
             </li>
             <li class="nav-item bold">
-                <a class="nav-link text-white" href="#">Предзаказ</a>
+                <a class="nav-link text-white" href="{% url 'preorder' %}">Предзаказ</a>
             </li>
             <li class="nav-item bold">
-                <a class="nav-link text-white " href="#">Sale</a>
+                <a class="nav-link text-white " href="{% url 'sale' %}">Sale</a>
             </li>
             <li class="nav-item bold">
-                <a class="nav-link text-white " href="/contacts">Контакты</a>
+                <a class="nav-link text-white " href="{% url 'contacts' %}">Контакты</a>
             </li>
         </ul>
     </div>
@@ -125,16 +125,16 @@
                         <a class="nav-link padding active bold14">О НАС</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font12 text-white" href="/about_us">О компании</a>
+                        <a class="nav-link font12 text-white" href="{% url 'about_us' %}">О компании</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link font12 text-white pad2" href="#">Отзывы</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font12 text-white pad2" href="/payment">Оплата</a>
+                        <a class="nav-link font12 text-white pad2" href="{% url 'payment' %}">Оплата</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font12 text-white pad2" href="/confidance">Политика конфиденциальности</a>
+                        <a class="nav-link font12 text-white pad2" href="{% url 'confidance' %}">Политика конфиденциальности</a>
                     </li>
                 </ul>
             </div>

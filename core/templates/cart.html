@@ -1,0 +1,37 @@
+{% extends 'base1.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+    <div class="col-sm-12 padding-l-50-r-0 top bottom">      
+        <h3>Моя корзина</h3>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Наимеонование часов</th>
+            <th scope="col">Количество</th>
+            <th scope="col">Цена, грн</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in cart.items.all %}
+        <tr>
+            <th scope="row">{{ item.id}</th>
+            <td>{{ item.watch.title}}</td>
+            <td>
+                <form action='' method="GET">
+                    <input class=center type="number" name="quantity" value="{{ item.quantity}}" min='1'>
+                </form>
+                </td>
+            <td>{{ item.item_total}}</td>
+            <td><a class="btn btn-secondary" href="#" role="button">Удалить из корзины</a></td>
+                
+        </tr>
+        {% endfor %}
+        <tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -35,71 +35,25 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12 title">
-            <p>ПОПУЛЯРНЫЕ БРЕНДЫ </p>
+            <p>ПОПУЛЯРНЫЕ БРЕНДЫ</p>
         </div>
     </div>
-    <div class="row bottom">
+    
+    <div class="row">
+            {% for brand in brands %}
         <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/rue.png' %}" width="120" alt="Rue">
-        </div>
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/hublot.png' %}" width="120" alt="Hublot">
-        </div>
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/tissot.png' %}" width="120" alt="Tissot">
-        </div>
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/rolex.png' %}" width="120" alt="Rolex">
-        </div>        
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/alpina.png' %}" width="120" alt="Alpina">
-        </div>
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/versace.png' %}" width="120" alt="Versace">
-        </div>
-    </div>
-    <div class="row bottom">
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/rado.png' %}" width="120" alt="Rado">
-        </div>
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/cartier.png' %}" width="120" alt="Cartier">
-        </div>
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/longines.png' %}" width="120" alt="Longines">
-        </div>
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/IWC-Logo-schwarz.png' %}" width="120" alt="IWC">
-        </div>
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/jaeger-lecoultre-logo.png' %}" width="120" alt="Jaerger">
-        </div>
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/oris_logo.png' %}" width="120" alt="Oris">
+            <div class="card non_boder bottom">
+                <a href="{{ brand.slug }}">
+                    <img class="brand-card" src="{{ brand.image.url }}" alt="{{ brand.title}}">
+                </a>
+            </div>
         </div>
 
+        {% endfor %}
     </div>
-    <div class="row bottom">
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/junghans-logo.png' %}" width="120" alt="Junghans">
-        </div>
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/zenith.png' %}" width="120" alt="Zenith">
-        </div>
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/Baume-Mercier-Logo-schwarz.png' %}" width="120" alt="Baume">
-        </div>
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/officine_panerai.png' %}" width="120" alt="Office">
-        </div>
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/GUCCI_logo.png' %}" width="120" alt="Gucci">
-        </div>
-        <div class="col-sm-2">
-            <img class="img-responsive" src="{% static 'core/img/bell-and-ross-logo.png' %}" width="120" alt="Bell">
-        </div>
-    </div>
+    
 </div>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-12 title">

@@ -1,0 +1,89 @@
+{% extends 'base1.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb ">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Все часы </li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container top">
+        <div class="background clearfix">
+            <div class="col-sm-3 border-right padding-r-20 float-left"> 
+                <div class=bottom>
+                    <h6>ФИЛЬТРЫ</h6>
+                </div>
+                <form method="get">
+                    {{ filter.form.as_p }}
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <div class="col-sm-9 padding-l-50-r-0 float-right">
+                <div>
+                    <h3>Все часы </h3>
+                    <!-- <h3>Все часы ({{ watches.count }})</h3> -->
+                </div>
+                <div class="bottom">
+                    <h6>Сортировать по:</h6>
+                </div>
+                <ul>
+                        {% for watch in filter.qs %}
+                          <li>{{ watch.title }} - {{ watch.price }}</li>
+                        {% endfor %}
+                        </ul>
+                <!-- <div class="row bottom">
+                    {% for watch in watches %}
+                    
+                    <div class="col-sm-4">
+                        <div class="card non_boder">
+                            <img class="card-img-top img-responsive" src="{{ watch.image.url }}" width="150" alt="{{ watch.title}}">
+                                <div class="card-body center">
+                                    <a href="{{ watch.slug }}"><h5 class="card-title">{{ watch.title }}</h5></a>
+                                    <p class="card-text">{{ watch.subtitle }}</p>
+                                    <br>
+                                    <h5 class="card-title">{{ watch.price }}</h5>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-secondary bronze">
+                                            <a href=#><img class="img-responsive" src="{% static 'core/img/shopping-bag-50.png' %}" width="30" alt="карзина"></a>
+                                        </button>
+                                        <button type="button" class="btn btn-secondary grey">
+                                            <a href=#><img class="img-responsive" src="{% static 'core/img/wish_list.png' %}" width="30" alt="список желаний"></a>
+                                        </button>
+                                        <button type="button" class="btn btn-secondary grey">
+                                            <a href=#><img class="img-responsive" src="{% static 'core/img/scale.png' %}" width="30" alt="Добавить в сравнение"></a>
+                                        </button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div> -->
+            </div>
+        </div>
+    <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul>
+    </nav>
+    </div>
+    
+
+{% endblock  %}

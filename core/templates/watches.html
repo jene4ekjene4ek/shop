@@ -7,7 +7,7 @@
             <ol class="breadcrumb ">
                 <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
                 <li class="breadcrumb-item"><a href="{% url 'all_brands' %}">Все часы</a></li>
-                <li class="breadcrumb-item"><a href=#>{{ object.namebrand_id }}</a></li>
+                <li class="breadcrumb-item"><a href=#>{{ object.namebrand }}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ object.title }} {{ object.subtitle }}</li>
             </ol>
         </nav>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" class="btn btn-secondary bronze">
-                        <a href=#><img class="img-responsive" src="{% static 'core/img/shopping-bag-50.png' %}" width="30" alt="карзина"></a>
+                        <a href="{% url 'add_to_cart' watch_slug=object.slug %}"><img class="img-responsive" src="{% static 'core/img/shopping-bag-50.png' %}" width="30" alt="карзина"></a>
                     </button>
                     <button type="button" class="btn btn-secondary grey">
                         <a href=#><img class="img-responsive" src="{% static 'core/img/wish_list.png' %}" width="30" alt="список желаний"></a>
