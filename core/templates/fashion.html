@@ -36,7 +36,7 @@
                     {% for watch in watches %}
                         <div class="col-sm-4">
                                 <div class="card non_boder">
-                                    <img class="card-img-top img-responsive" src="{{ watch.image.url }}" width="150" alt="Oris">
+                                    <img class="card-img-top img-responsive" src="{{ watch.image_main.url }}" width="150" alt="Oris">
                                         <div class="card-body center">
                                             <a href="{{ watch.slug }}"><h5 class="card-title">{{ watch.title }}</h5></a>
                                             <p class="card-text">{{ watch.subtitle }}</p>

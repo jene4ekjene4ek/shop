@@ -7,7 +7,7 @@
             <ol class="breadcrumb ">
                 <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
                 <li class="breadcrumb-item"><a href="{% url 'all_brands' %}">Все часы</a></li>
-                <li class="breadcrumb-item"><a href=#>{{ object.namebrand }}</a></li>
+                <li class="breadcrumb-item"><a href="#">{{ object.namebrand }}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ object.title }} {{ object.subtitle }}</li>
             </ol>
         </nav>
@@ -15,15 +15,25 @@
    
     <div class="container top">
         <div class="background clearfix">
+            <!-- <div class="float-left"> -->
+                <div class="col-sm-3  float-left"> 
+                    <img class="card-img-top img-responsive" src="{{ object.image_main.url }}" width="75" alt="{{ object.title }}">
+                    <img class="card-img-top img-responsive" src="{{ object.image_one.url }}" width="150" alt="{{ object.title }}">    
+                    <img class="card-img-top img-responsive" src="{{ object.image_two.url }}" width="150" alt="{{ object.title }}">    
+                    <img class="card-img-top img-responsive" src="{{ object.image_three.url }}" width="150" alt="{{ object.title }}">     
+                </div>
+
+
+            <!--</div> -->
             <div class="col-sm-3 border-right padding-r-20 float-left"> 
-                <img class="card-img-top img-responsive" src="{{ object.image.url }}" width="150" alt="{{ object.title }}">             
+                <img class="card-img-top img-responsive" src="{{ object.image_main.url }}" width="800" alt="{{ object.title }}">             
             </div>
-            <div class="col-sm-9 padding-l-50-r-0 float-right">
+            
+            <div class="col-sm-6 padding-l-50-r-0 float-right">
                 <div>
                     <h3>{{ object.title }}</h3>
                     <h3>{{ object.subtitle }}</h3>
-                    
-                    <p>{{ object.char}}</p>
+                    <p>Артикул:{{ object.id}}</p>
                     <h3>{{ object.price}}</h3>
                 </div>
                 <div class="btn-group" role="group" aria-label="Basic example">
@@ -40,6 +50,15 @@
                 <div class="row bottom">
                     <h3>Характеристики</h3>
                 </div>
+                <div>
+                            <p>Механизм: {{ object.mechanism}}</p>
+                </div>
+                <div>
+                    <p>Корпус: {{ object.korpus}}</p>
+                </div>
+                    
+  
+                
                 <div class="row bottom">
                         <h3>Похожие товары</h3>
                 </div>

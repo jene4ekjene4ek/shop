@@ -1,15 +1,13 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, FormView, View, DetailView, UpdateView
 from django.views.generic.edit import FormView
-from core.models import Watches, Order, NameBrand, Cart, CartItem
+from core.models import Watches, NameBrand, Cart, CartItem
 from django.views.generic.list import ListView
-from .forms import UserForm, FilterForm, OrderPositionForm, OrderForm, AddToChartForm
+from .forms import UserForm, FilterForm
 from django.views.generic.edit import FormMixin
 from django.http import HttpResponseRedirect
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .filters import WatchesFilterTest
 from django.shortcuts import get_object_or_404
-from django.db.models import Q
+
 # Create your views here.
 
 class Home(TemplateView):
@@ -75,33 +73,7 @@ class AllBrands(FormMixin, TemplateView):
         print(form.errors)
         return render(request, 'all_brands.html', {'form': form})
 
-    def add_to_cart(self, request):
-        order = get_order(request)
-        if not order:
-            order = Order.objects.create()
-            request.session['order_id'] = order.id
-        form = AddToChartForm(request.POST)
-        if form.is_valid():
-            watches = form.cleaned_data['watches']
-            order_position, created = OrderPosition.objects.get_or_create(
-                watches = watches,
-                order = order
-            )
-
-            order.position.count +=1
-            order.position.save()
-
-        return redirect('cart')
-
-    def get_order(self, request):
-        order_id = request.session.get('order_id')
-        order = None
-        if order_id:
-            try:
-                order = Order.objects.get(id=order_id)
-            except Order.DoesNotExist:
-                pass
-        return order
+    
 
 class Men(AllBrands):
     template_name = 'men.html'
@@ -126,6 +98,7 @@ class Unisex(AllBrands):
     def get_context_data(self, **kwargs):
         context = super(AllBrands, self).get_context_data(**kwargs)
         context['watches'] = Watches.objects.filter(gender=2)
+
         return context
 
 class Swiss(AllBrands):
@@ -196,9 +169,6 @@ class Profile(FormView):
 
 
 
-# class Order(ListView):
-#     model = Order
-#     template_name = 'orders.html'
 
 
 class AddToCart(View):
@@ -234,46 +204,32 @@ class WatchView(DetailView, AddToCart):
    
 
 
-class BrandView(FormMixin, ListView):
+class BrandView(FormView, ListView):
     template_name = "brand.html"
-    model = NameBrand, Watches
+    model = NameBrand
     form_class=FilterForm
-
-    # def brand(self, request, namebrand_slug):
-    #     brand = NameBrand.objects.get(slug=namebrand_slug)
-    #     watches = Watches.objects.filters(namebrand=brand)
-    #     # context = {
-    #     #     'brand': brand,
-    #     #     'watches': watches
-    #     # }
-    #     for watch in watches:
-    #         print(watch)
-    #     return render(request, 'core/brand.html', {})
+ 
 
 
-        # return brand
+    def get_queryset(self):
+        self.brand = get_object_or_404(NameBrand, slug=self.kwargs['namebrand_slug'])
+        return NameBrand.objects.get(name=self.brand)
 
-    # def get_context_data(self, **kwargs):
-    #     context=super(BrandView, self).get_context_data(**kwargs)
-    #     context['brand'] = NameBrand.objects.filters(slug=namebrand_slug)
-    #     context['watches'] = Watches.objects.filters(namebrand=brand)
-    #     for watch in watches:
-    #         print(watch)
-    #     return context
+ 
 
-    def get_brand(self):
-        namebrand_id=self.kwargs.get('namebrand_id')
-        namebrand = None
-        if namebrand_id:
-            brand = get_object_or_404(NameBrand, id=namebrand_id)
-            self.namebrand = namebrand
-        return brand
+    def get_context_data(self, **kwargs):
+        context = super(BrandView, self).get_context_data(**kwargs)
+        context['watches'] = Watches.objects.filter(namebrand=self.brand)
+        context['brr'] = brand = NameBrand.objects.get(name=self.brand)
+        return context
 
-    def get_queryset(self, ):
-        queryset = super().get_queryset()
-        if self.namebrand:
-            queryset = queryset.filter(namebrand=namebrand)
-        return queryset
+    def post(self, request):
+        form = FilterForm(request.POST)
+        if form.is_valid():
+            watches = form.save()
+            return render(request, 'brand.html', {'form': form, 'watches': watches})
+        print(form.errors)
+        return render(request, 'brand.html', {'form': form})
 
   
 class CartCart(TemplateView):
@@ -308,27 +264,6 @@ class CartCart(TemplateView):
         # }
         # return render(self, 'cart.html', context)
 
-# class AllBrandsTest(TemplateView):
-#     template_name = 'all_brands_test.html'
-#     model = Watches
-#     filer_class=WatchesFilterTest
-
-    # def search(self, request):
-    #     watch_list = Watches.objects.all()
-    #     watches_filter = WatchesFilterTest(request.GET, queryset=watch_list)
-    #     return render(request, 'all_brands_test.html', {'filter': watches_filter})
-
-    # def get_context_data(self, **kwargs):
-    #     context = super(AllBrandsTest, self).get_context_data(**kwargs)
-    #     context['watches'] = Watches.objects.all()
-    #     context['filter'] = WatchesFilterTest(request.GET, queryset=watches)
-    #     return context
-
-    # def get_context_data(self, **kwargs):
-    #     context = super(AllBrands, self).get_context_data(**kwargs)
-    #     context['watches'] = Watches.objects.all()
-    #     context['form'] = self.get_form()
-    #     return context
 
     
 

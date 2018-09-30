@@ -7,7 +7,7 @@
             <ol class="breadcrumb ">
                 <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
                 <li class="breadcrumb-item"><a href="{% url 'all_brands' %}">Все бренды</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ brand.name }}</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ brr }}</li>
             </ol>
         </nav>
     </div>
@@ -26,16 +26,17 @@
             </div>
             <div class="col-sm-9 padding-l-50-r-0 float-right">
                 <div>
-                    <h3>{{ brand.name}} ({{ watches.count }})</h3>
+                    <h3>{{ brr }}: ({{ watches.count }}) </h3>
+                    
                 </div>
                 <div class="bottom">
                     <h6>Сортировать по:</h6>
                 </div>
                 <div class="row bottom">
-                    {% for watch in object_list %}
+                    {% for watch in watches %} 
                         <div class="col-sm-4">
                                 <div class="card non_boder">
-                                    <img class="card-img-top img-responsive" src="{{ watch.image.url }}" width="150" alt="Oris">
+                                    <img class="card-img-top img-responsive" src="{{ watch.image_main.url }}" width="150" alt="{{ watch.title}}"> -->
                                         <div class="card-body center">
                                             <a href="{{ watch.slug }}"><h5 class="card-title">{{ watch.title }}</h5></a>
                                             <p class="card-text">{{ watch.subtitle }}</p>

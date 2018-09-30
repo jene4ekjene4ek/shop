@@ -16,9 +16,9 @@ class NameBrand(models.Model):
 
 class Watches(models.Model):
 
-    MEN = 'M'
-    WOMEN = 'W'
-    UNISEX = 'U'
+    MEN = 0
+    WOMEN = 1
+    UNISEX = 2
 
     GENDER_CHOICES = (
         (MEN, 'Men'),
@@ -79,9 +79,12 @@ class Watches(models.Model):
     fashion = models.BooleanField(default=False)
     
     char = models.TextField(default=True)
-    image = models.ImageField(default=True, upload_to="img")
+    image_main = models.ImageField(default=True, upload_to="img")
+    image_one = models.ImageField(default=True, upload_to="img")
+    image_two = models.ImageField(default=True, upload_to="img")
+    image_three = models.ImageField(default=True, upload_to="img")
     slug = models.SlugField(default=True, unique=True)
-    gender = models.CharField(null=True, choices=GENDER_CHOICES, max_length=1)
+    gender = models.IntegerField(null=True, choices=GENDER_CHOICES)
     made_by = models.IntegerField(null=True, choices=COUNTRY_CHOICES)
     mechanism = models.IntegerField(null=True, choices=MECHANISM_CHOICES)
     korpus = models.IntegerField(null=True, choices=KORPUS_CHOICES)
@@ -109,26 +112,6 @@ class Cart(models.Model):
     def __str__(self):
         return self.id
 
-    # def add_to_cart(self, watch_slug):
+
         
 
-class Order(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Opened at")
-    closed_at = models.DateTimeField(verbose_name="Closed at", blank=True, null=True)
-    is_closed = models.BooleanField(default=False)
-    
-
-
-    def price(self):
-        total_price = 0
-        for p in self.positions.all():
-            total_price += p.price()
-        return total_price
-
-class OrderPosition(models.Model):
-    order = models.ForeignKey(Order, related_name="positions")
-    watches = models.ForeignKey(Watches)
-    quantity = models.PositiveIntegerField(default=1)
-
-    def price(self):
-        return self.watches.price * self.quantity
